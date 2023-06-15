@@ -1,14 +1,14 @@
 const express=require('express');
-//const cookieParser=require('cookie-parser');
-const mongoose=require('mongoose');
+const cookieParser=require('cookie-parser');
 const expressLayouts=require('express-ejs-layouts');
+const db=require('./config/mongoose');
 const app=express();
 const port=8000;
 
-mongoose.connect('mongodb+srv://chahat:Yg6qGWVQZc9p9qjB@cluster0.58wtuvn.mongodb.net/');
-mongoose.connection.on('connected', function() {
-    console.log("Connected to DB")
-});
+
+
+app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
